@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: "Inter", sans-serif;
 }
 
 body{
     display: flex;
     justify-content: center;
+    background: #dfe8df;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .searchForm_container{
+    position: relative;
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
@@ -19,14 +27,34 @@ body{
     align-items: center;
     width: 600px;
     height: 550px;
-    border: 2px solid black;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
     gap: 2rem;
+    background: snow; 
+
+
 
     & .searchForm{
         display: flex;
         align-items: center;
         gap: 2rem;
-        margin-top: 2rem;
+
+        & input{
+            background-color: white;
+            padding: 7px 20px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        & button{
+            background-color: white;
+            cursor: pointer;
+            padding: 7px 10px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
     }    
 }
 
@@ -40,5 +68,6 @@ body{
    & img{
     width: 300px;
     height: 300px;
+    border-radius: 20px;
    }
 }

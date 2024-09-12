@@ -71,7 +71,7 @@ button.addEventListener('click', function(){
     renderContainer.innerHTML = pizzaHTML;
     }
   } else if(inputValue === "") {
-   renderContainer.innerHTML = `<p>El campo no debe quedar vacío</p>`;
+   renderContainer.innerHTML = `<p>El campo no debe quedar vacío.</p>`;
   } else {
    renderContainer.innerHTML = `<p>El numero ingresado no coincide con ningun ID del menu de pizzas.</p>`;
   };
