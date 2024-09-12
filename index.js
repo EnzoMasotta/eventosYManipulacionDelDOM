@@ -52,12 +52,11 @@ const renderContainer = document.querySelector(`.renderContainer`);
 
 button.addEventListener('click', function(){
 
-  const inputValue = parseInt(numberInput.value);
+  const inputValue = numberInput.value.trim();
 
-  if (inputValue >= 1 && inputValue <= 5 && inputValue !== '') {
-   console.log(`El valor ingresado es: ${inputValue}`);
-
-   const pizzaRender = pizzas.find(pizza => pizza.id === inputValue);
+  if (inputValue >= 1 && inputValue <= 5) {
+    const parsedValue = parseInt(inputValue);
+    const pizzaRender = pizzas.find(pizza => pizza.id === parsedValue);
   
    if(pizzaRender){
     const pizzaHTML = ` 
@@ -71,12 +70,13 @@ button.addEventListener('click', function(){
 
     renderContainer.innerHTML = pizzaHTML;
     }
-  } else if(inputValue < 1 && inputValue > 5){
+  } else if(inputValue === "") {
+   renderContainer.innerHTML = `<p>El campo no debe quedar vacío</p>`;
+  } else {
+   renderContainer.innerHTML = `<p>El numero ingresado no coincide con ningun ID del menu de pizzas.</p>`;
+  };
+
   
-    renderContainer.innerHTML = `<p>El campo no debe quedar vacio</p>`;
-  } else{
-    renderContainer.innerHTML = `<p>0</p>`;
-  }
 
 });
 
