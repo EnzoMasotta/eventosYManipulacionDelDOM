@@ -57,6 +57,8 @@ button.addEventListener('click', function(){
   if (inputValue >= 1 && inputValue <= 5) {
     const parsedValue = parseInt(inputValue);
     const pizzaRender = pizzas.find(pizza => pizza.id === parsedValue);
+
+    localStorage.setItem('lastPizzaId', parsedValue);
   
    if(pizzaRender){
     const pizzaHTML = ` 
@@ -78,5 +80,25 @@ button.addEventListener('click', function(){
 
   
 
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const lastPizzaId = localStorage.getItem('lastPizzaId');
+  
+  if (lastPizzaId) {
+    numberInput.value = lastPizzaId;
+    const pizzaRender = pizzas.find(pizza => pizza.id === parseInt(lastPizzaId));
+    
+    if (pizzaRender) {
+      const pizzaHTML = ` 
+        <img src="${pizzaRender.imagen}" alt="${pizzaRender.nombre}">
+        <h2>${pizzaRender.nombre}</h2>
+        <p>Precio: $${pizzaRender.precio}</p>
+        <p>Ingredientes: ${pizzaRender.ingredientes.join(', ')}</p>
+      `;
+
+      renderContainer.innerHTML = pizzaHTML;
+    }
+  }
 });
 
